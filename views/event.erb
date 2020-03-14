@@ -7,16 +7,15 @@
 
 <div class = "row mt-4">
     <div class = "col-md-6">
-        <h2>Ratings</h2>
+        <h2>Teriyiaki Hub Ratings</h2>
     </div>
     <div class = "col-md-6">
-        <h2>Location</h2>
+        <h2>Location Details</h2>
     </div>
 </div>
 <div class = "row">
-    <div class = "col-md-4">
-
-        <p>Overall: </p>
+    <div class = "col-md-6">
+        <p><b>Overall:</b></p>
         <% if @avg_overall == nil %>
             <p>No Reviews Yet</p>
         <% else %>
@@ -32,7 +31,7 @@
             </p>
         <% end %>
 
-        <p>Payout: </p>
+        <p><b>Food Quality:</b></p>
         <% if @avg_payout == nil %>
             <p>No Reviews Yet</p>
         <% else %>
@@ -48,9 +47,7 @@
             </p>
         <% end %>
     
-    </div>
-    <div class = "col-md-4">
-        <p>Sound: </p>
+        <p><b>Variety:</b></p>
         <% if @avg_sound == nil %>
             <p>No Reviews Yet</p>
         <% else %>
@@ -66,7 +63,7 @@
             </p>
         <% end %>
 
-        <p>Vibe: </p>
+        <p><b>Ambiance:</b></p>
         <% if @avg_vibe == nil %>
             <p>No Reviews Yet</p>
         <% else %>
@@ -82,12 +79,12 @@
             </p>
         <% end %>
     </div>
-    <div class = "col-md-4 col-md-offset-4">
+    <div class = "col-md-6 col-md-offset-6">
         <p>Email: <%= @event[:email] %></p>
         <p>Phone: <%= @event[:phone] %></p>
         <p>Website: <a href="<%=@event[:website]%>"><%=@event[:website]%></a></p>
         <iframe
-            width="200"
+            width="250"
             height="150"
             frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
@@ -98,13 +95,13 @@
 
 <div class = "row mt-3">
     <div class = "col">
-        <a href ="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-outline-primary">Write a Review</a>
+        <a href ="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-outline-primary">Submit a Review</a>
     </div>
 </div>
 
 <div class = "row mt-3">
     <div class = "col">
-        <h3>Reviews</h3>
+        <h2>Reviews</h2>
     </div>
 </div>
 

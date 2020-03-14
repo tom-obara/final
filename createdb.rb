@@ -34,25 +34,25 @@ end
 # Insert initial (seed) data
 events_table = DB.from(:events)
 
-events_table.insert(event_name: "1. Teriyaki Bowl", 
+events_table.insert(event_name: "Teriyaki Bowl", 
                     address: "718 Taylor Ave N, Seattle, WA 98109",
                     website: "http://teriyakibowl-qa.com/",
                     email: "replace@replace.com",
                     phone: "(206) 285-8344")
 
-events_table.insert(event_name: "2. Gourmet Teriyaki", 
+events_table.insert(event_name: "Gourmet Teriyaki", 
                    address: "7671 SE 27th St, Mercer Island, WA 98040",
                     website: "https://www.yelp.com/biz/gourmet-teriyaki-mercer-island-2",
                     email: "replace@replace.com",
                     phone: "(206) 232-0580")
 
-events_table.insert(event_name: "3. Toshio's Teriyaki", 
+events_table.insert(event_name: "Toshio's Teriyaki", 
                     address: "1706 Rainier Ave S, Seattle, WA 98144",
                     website: "http://www.toshiosteriyaki.com/",
                     email: "replace@replace.com",
                     phone: "(206) 323-6303")
 
-events_table.insert(event_name: "4. University Teriyaki", 
+events_table.insert(event_name: "University Teriyaki", 
                     address: "4108 The Ave, Seattle, WA 98105",
                     website: "https://www.tripadvisor.com/Restaurant_Review-g60878-d2529210-Reviews-University_Teriyaki-Seattle_Washington.html",
                     email: "replace@replace.com",
