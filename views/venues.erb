@@ -1,16 +1,16 @@
 <div class = "row">
     <div class = "col">
-        <h1><%= @event[:event_name] %></h1>
-        <h4><%= @event[:address] %></h4>
+        <h1><%= @venue[:venue_name] %></h1>
+        <h3><%= @venue[:address] %></h3>
     </div>
 </div>
 
-<div class = "row mt-4">
-    <div class = "col-md-6">
-        <h2>Ratings</h2>
+<div class = "row mt-5">
+    <div class = "col-md-8">
+        <h3>Ratings</h3>
     </div>
-    <div class = "col-md-6">
-        <h2>Location</h2>
+    <div class = "col-md-4">
+        <h3>Booking Contact</h3>
     </div>
 </div>
 <div class = "row">
@@ -83,22 +83,22 @@
         <% end %>
     </div>
     <div class = "col-md-4 col-md-offset-4">
-        <p>Email: <%= @event[:email] %></p>
-        <p>Phone: <%= @event[:phone] %></p>
-        <p>Website: <a href="<%=@event[:website]%>"><%=@event[:website]%></a></p>
+        <p>Email: <%= @venue[:email] %></p>
+        <p>Phone: <%= @venue[:phone] %></p>
+        <p>Website: <a href="<%=@venue[:website]%>"><%=@venue[:website]%></a></p>
         <iframe
             width="200"
             height="150"
             frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-            &q=<%=@event[:address]%>&zoom=12" allowfullscreen>
+            &q=<%=@venue[:address]%>&zoom=12" allowfullscreen>
         </iframe>
     </div>
 </div>
 
 <div class = "row mt-3">
     <div class = "col">
-        <a href ="/events/<%= @event[:id] %>/rsvps/new" class="btn btn-outline-primary">Write a Review</a>
+        <a href ="/venues/<%= @venue[:id] %>/reviews/new" class="btn btn-outline-primary">Write a Review</a>
     </div>
 </div>
 
@@ -108,20 +108,20 @@
     </div>
 </div>
 
-<% for rsvps in @rsvps %>
+<% for review in @reviews %>
     <div class = "row mt-3">
         <div class = "col">
             <hr>
-            <%= @users_table.where(id: rsvps[:user_id]).to_a[0][:name] %>
+            <%= @users_table.where(id: review[:user_id]).to_a[0][:name] %>
         </div>
     </div>
     <div class = "row">
         <div class = "col-md-3">
             <p>Overall Rating: 
-            <%= rsvps[:overall_rating] %>
-            <% if rsvps[:overall_rating] >= 3.5%>
+            <%= review[:overall_rating] %>
+            <% if review[:overall_rating] >= 3.5%>
                 <i class="fas fa-smile"></i>
-            <% elsif rsvps[:overall_rating] >= 2.5 %>
+            <% elsif review[:overall_rating] >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -130,10 +130,10 @@
         </div>
         <div class = "col-md-3">
             <p>Sound Rating: 
-            <%= rsvps[:sound_rating] %>
-            <% if rsvps[:sound_rating] >= 3.5%>
+            <%= review[:sound_rating] %>
+            <% if review[:sound_rating] >= 3.5%>
                 <i class="fas fa-smile"></i>
-            <% elsif rsvps[:sound_rating] >= 2.5 %>
+            <% elsif review[:sound_rating] >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -142,10 +142,10 @@
         </div>
         <div class = "col-md-3">
             <p>Payout Rating: 
-            <%= rsvps[:payout_rating] %>
-            <% if rsvps[:payout_rating] >= 3.5%>
+            <%= review[:payout_rating] %>
+            <% if review[:payout_rating] >= 3.5%>
                 <i class="fas fa-smile"></i>
-            <% elsif rsvps[:payout_rating] >= 2.5 %>
+            <% elsif review[:payout_rating] >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -154,10 +154,10 @@
         </div>
         <div class = "col-md-3">
             <p>Vibe Rating: 
-            <%= rsvps[:vibe_rating] %>
-            <% if rsvps[:vibe_rating] >= 3.5%>
+            <%= review[:vibe_rating] %>
+            <% if review[:vibe_rating] >= 3.5%>
                 <i class="fas fa-smile"></i>
-            <% elsif rsvps[:vibe_rating] >= 2.5 %>
+            <% elsif review[:vibe_rating] >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -167,7 +167,7 @@
     </div>
     <div class = "row">
         <div class = "col">
-            <%= rsvps[:comments] %>
+            <%= review[:comments] %>
         </div>
     </div>
 <% end %>

@@ -16,24 +16,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
     
     <!-- Your own CSS -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/stylesheet.css">
 
     <title>Teriyaki Hub</title>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="/">Teriyaki Hub</a>
+            <a class="navbar-brand" href="//events/all">Teriyaki Hub</a>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/users/new">Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logins/new">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/events/all">Teriyaki Joints</a>
                 </li>
             </ul>
             <% if @current_user %>
@@ -48,7 +48,6 @@
             <% end %>
         </div>
     </nav>
-
     <div class="container mt-5">
       <%= yield %>
     </div>

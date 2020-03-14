@@ -18,22 +18,54 @@ events_table = DB.from(:events)
 rsvps_table = DB.from(:rsvps)
 users_table = DB.from(:users)
 
+
 before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
 end
 
 get "/" do
+    view "new_user"
+    
+end
+
+
+get "/events/all" do
     puts events_table.all
     @events = events_table.all.to_a
+    @rsvps_table = DB.from(:reviews)
     view "events"
 end
 
 get "/events/:id" do
     @event = events_table.where(id: params[:id]).to_a[0]
     @rsvps = rsvps_table.where(event_id: @event[:id])
-    @going_count = rsvps_table.where(event_id: @event[:id]).sum(:going)
     @users_table = users_table
+    @avg_overall = rsvps_table.where(event_id: @event[:id]).avg(:overall_rating)
+    @avg_sound = rsvps_table.where(event_id: @event[:id]).avg(:sound_rating)
+    @avg_vibe = rsvps_table.where(event_id: @event[:id]).avg(:vibe_rating)
+    @avg_payout = rsvps_table.where(event_id: @event[:id]).avg(:payout_rating)
     view "event"
+end
+
+get "/event/:id/reviews/confirm" do
+    if @current_user == nil
+        rsvps_table.insert(event_id: params["id"],
+                            user_id: 1,
+                            overall_rating: params["overall_rating"],
+                            sound_rating: params["sound_rating"],
+                            vibe_rating: params["vibe_rating"],
+                            payout_rating: params["payout_rating"],
+                            comments: params["comments"])
+    else   
+        rsvps_table.insert(event_id: params["id"],
+                            user_id: session["user_id"],
+                            overall_rating: params["overall_rating"],
+                            sound_rating: params["sound_rating"],
+                            vibe_rating: params["vibe_rating"],
+                            payout_rating: params["payout_rating"],
+                            comments: params["comments"])
+    end
+    view "reviews_confirm"
 end
 
 get "/events/:id/rsvps/new" do
@@ -46,7 +78,6 @@ get "/events/:id/rsvps/create" do
     @event = events_table.where(id: params["id"]).to_a[0]
     rsvps_table.insert(event_id: params["id"],
                        user_id: session["user_id"],
-                       going: params["going"],
                        comments: params["comments"])
     view "create_rsvp"
 end

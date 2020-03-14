@@ -1,5 +1,14 @@
-<h1>Seattle's Top Teriyaki Joints</h1>
+<body>
+  <div class="container">
+        <div class="jumbotron jumbotron-fluid text-center">
+            <h1 class="display-4" style = "font-family: "helvetica">Teriyaki Hub </h1>
+            <p class="lead"> Seattle's Only Destination for Teriyaki Rankings and Reviews</p>
+            </div>
+    </div>
 
-<% for event in @events %>
-    <p><a href="/events/<%= event[:id] %>"><%= event[:title] %></a></p>
-<% end %>
+    <h1>Seattle Teriyaki Joints</h1>
+
+    <% for event in @events %>
+        <p><a href="/events/<%= event[:id] %>"><%= event[:event_name] %></a></p>
+    <% end %>
+</body>

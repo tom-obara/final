@@ -1,0 +1,53 @@
+<h1> New Review for <%= @event[:event_name] %></h1>
+
+<div class = "row">
+    <div class = "col">
+        <form action="/events/all<%= @event[:id] %>/reviews/confirm">
+            <div class="form-group">
+                <label>Overall Rating</label>
+                <select class="form-control" name="overall_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Sound Rating</label>
+                <select class="form-control" name="sound_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Payout Rating</label>
+                <select class="form-control" name="payout_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Vibe Rating</label>
+                <select class="form-control" name="vibe_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>           
+            <div class="form-group">
+                <label>Comments</label>
+                <textarea class="form-control" rows="3" name="comments"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+</div>

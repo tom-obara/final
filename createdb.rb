@@ -7,18 +7,23 @@ DB = Sequel.connect(connection_string)                                          
 # Database schema - this should reflect your domain model
 DB.create_table! :events do
   primary_key :id
-  String :title
-  String :description, text: true
-  String :date
-  String :location
+  String :event_name
+  String :address
+  String :website
+  String :email
+  String :phone
 end
 DB.create_table! :rsvps do
   primary_key :id
   foreign_key :event_id
   foreign_key :user_id
-  Boolean :going
+  Integer :overall_rating
+  Integer :sound_rating
+  Integer :vibe_rating
+  Integer :payout_rating
   String :comments, text: true
 end
+
 DB.create_table! :users do
   primary_key :id
   String :name
@@ -29,12 +34,32 @@ end
 # Insert initial (seed) data
 events_table = DB.from(:events)
 
-events_table.insert(title: "Teriyaki Bowl", 
-                    description: "This classic joint wedged between Plaid Pantry and Domino's boasts the best teriyaki on Queen Anne, and arguably the city. People can't get enough of this family run hot spot!",
-                    date: "June 21",
-                    location: "Lower Queen Anne")
+events_table.insert(event_name: "1. Teriyaki Bowl", 
+                    address: "718 Taylor Ave N, Seattle, WA 98109",
+                    website: "http://teriyakibowl-qa.com/",
+                    email: "replace@replace.com",
+                    phone: "(206) 285-8344")
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+events_table.insert(event_name: "2. Gourmet Teriyaki", 
+                   address: "7671 SE 27th St, Mercer Island, WA 98040",
+                    website: "https://www.yelp.com/biz/gourmet-teriyaki-mercer-island-2",
+                    email: "replace@replace.com",
+                    phone: "(206) 232-0580")
+
+events_table.insert(event_name: "3. Toshio's Teriyaki", 
+                    address: "1706 Rainier Ave S, Seattle, WA 98144",
+                    website: "http://www.toshiosteriyaki.com/",
+                    email: "replace@replace.com",
+                    phone: "(206) 323-6303")
+
+events_table.insert(event_name: "4. University Teriyaki", 
+                    address: "4108 The Ave, Seattle, WA 98105",
+                    website: "https://www.tripadvisor.com/Restaurant_Review-g60878-d2529210-Reviews-University_Teriyaki-Seattle_Washington.html",
+                    email: "replace@replace.com",
+                    phone: "(206) 632-5688")
+
+users_table = DB.from(:users)
+
+users_table.insert(name: "Anonymous", 
+                    email: "anonymous@musiciansguide.com",
+                    password: "anonymous")
