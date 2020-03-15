@@ -1,20 +1,53 @@
-<h2>
-    <i class="far fa-calendar-alt"></i>
-    <%= @event[:date] %>
-</h2>
-<h1>RSVP for <%= @event[:title] %></h1>
+<h1> New Review for <%= @event[:event_name] %></h1>
 
-<form action="/events/<%= @event[:id] %>/rsvps/create">
-  <div class="form-group">
-    <label>Are you going?</label>
-    <select class="form-control" name="going">
-      <option value="1">Yes</option>
-      <option value="0">No</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Comments</label>
-    <textarea class="form-control" rows="3" name="comments"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class = "row">
+    <div class = "col">
+        <form action="/event/<%= @event[:id] %>/reviews/confirm">
+            <div class="form-group">
+                <label>Overall Rating</label>
+                <select class="form-control" name="overall_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Sound Rating</label>
+                <select class="form-control" name="sound_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Payout Rating</label>
+                <select class="form-control" name="payout_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Vibe Rating</label>
+                <select class="form-control" name="vibe_rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>           
+            <div class="form-group">
+                <label>Comments</label>
+                <textarea class="form-control" rows="3" name="comments"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+</div>
