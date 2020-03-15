@@ -3,17 +3,3 @@
     <p>Sign-in below to enjoy premium access to Seattle's best Teriyaki joints</p>
     <p><a href="/logins/new"" class="btn btn-primary">Sign-In</a></p>
 </body>
-
-# put your API credentials here (found on your Twilio dashboard)
-account_sid = "AC031e83ca044bc6239f52a5039f428634"
-auth_token = "d496d94a2ef398252911bc3e5e0a706c"
-
-# set up a client to talk to the Twilio REST API
-client = Twilio::REST::Client.new(AC031e83ca044bc6239f52a5039f428634, d496d94a2ef398252911bc3e5e0a706c)
-
-# send the SMS from your trial Twilio number to your verified non-Twilio number
-client.messages.create(
- from: "+12029329915", 
- to: "+12067796004",
- body: "Congratulations on signing-up for Teriyaki Hub! Login on our website to view Seattle's best teriyaki locations, reviews, and rankings!"
-)
