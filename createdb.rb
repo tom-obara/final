@@ -18,7 +18,7 @@ DB.create_table! :ratings do
   foreign_key :event_id
   foreign_key :user_id
   Integer :overall_rating
-  Integer :sound_rating
+  Integer :food_quality_rating
   Integer :vibe_rating
   Integer :payout_rating
   String :comments, text: true

@@ -50,15 +50,15 @@
     
     </div>
     <div class = "col-md-4">
-        <p>Sound: </p>
-        <% if @avg_sound == nil %>
+        <p>Food Quality: </p>
+        <% if @avg_food_quality == nil %>
             <p>No Reviews Yet</p>
         <% else %>
             <p>
-            <%= (@avg_sound).round(2) %>/5
-            <% if @avg_sound >= 3.5 %>
+            <%= (@avg_food_quality).round(2) %>/5
+            <% if @avg_food_quality >= 3.5 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_sound >= 2.5 %>
+            <% elsif @avg_food_quality >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -129,11 +129,11 @@
             </p>
         </div>
         <div class = "col-md-3">
-            <p>Sound Rating: 
-            <%= review[:sound_rating] %>
-            <% if review[:sound_rating] >= 3.5%>
+            <p>Food Quality Rating: 
+            <%= review[:food_quality_rating] %>
+            <% if review[:food_quality_rating] >= 3.5%>
                 <i class="fas fa-smile"></i>
-            <% elsif review[:sound_rating] >= 2.5 %>
+            <% elsif review[:food_quality_rating] >= 2.5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
