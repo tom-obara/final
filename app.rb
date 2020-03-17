@@ -92,15 +92,16 @@ post "/users/create" do
     hashed_password = BCrypt::Password.create(params["password"])
     users_table.insert(name: params["name"], email: params["email"], password: hashed_password)
 
-    # account_sid = ENV["TWILIO_ACCOUNT_SID"]
-    # auth_token = ENV["TWILIO_AUTH_TOKEN"]
-    # client = Twilio::REST::Client.new(account_sid, auth_token)
-    # client.messages.create(
-    # from: "+12029329915", 
-    # to: "+12067796004",
-    # body: "A new user has created an account on Teriyaki Hub!"
-    # )
-
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    auth_token = ENV["TWILIO_AUTH_TOKEN"]
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    client.messages.create(
+    from: "+12029329915", 
+    to: "+12067796004",
+    body: "A new user has created an account on Teriyaki Hub!"
+    )
+    
+    puts ENV[“TWILIO_ACCOUNT_SID”]
     view "create_user"
 end
 
@@ -125,3 +126,4 @@ get "/logout" do
     @current_user = nil
     view "logout"
 end
+
