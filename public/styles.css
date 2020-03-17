@@ -4,8 +4,8 @@ body {
 
 .jumbotron {
     background-attachment: fixed;
+    background-color:rgb(194, 229, 250);
     background-size: cover;
-    height: 500px;
 }
 
 .footer {
