@@ -4,6 +4,19 @@ body {
 
 .jumbotron {
     background-attachment: fixed;
-    background-color:rgb(194, 229, 250);
+    background-color: blanchedalmond;
     background-size: cover;
+}
+
+.jumbotron h1 {
+    color: blue;
+    font-family: fantasy;
+}
+
+.footer {
+    background-color: blanchedalmond;
+}
+
+.lead {
+    font-weight: bold;
 }
