@@ -1,9 +1,14 @@
 body {
-font-family: 'Segoe UI'
+    font-family: 'Segoe UI'
 }
 
 .jumbotron {
     background-attachment: fixed;
     background-size: cover;
     height: 500px;
+}
+
+.footer {
+    text-align: center
+    font-size: 12px
 }
