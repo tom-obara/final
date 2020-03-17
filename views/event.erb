@@ -20,10 +20,10 @@
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_overall).round(2) %>/5
-            <% if @avg_overall >= 3.5 %>
+            <%= (@avg_overall).round(2) %>/10
+            <% if @avg_overall >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_overall >= 2.5 %>
+            <% elsif @avg_overall >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -36,10 +36,10 @@
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_payout).round(2) %>/5
-            <% if @avg_payout >= 3.5 %>
+            <%= (@avg_payout).round(2) %>/10
+            <% if @avg_payout >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_payout >= 2.5 %>
+            <% elsif @avg_payout >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -52,10 +52,10 @@
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_sound).round(2) %>/5
-            <% if @avg_sound >= 3.5 %>
+            <%= (@avg_sound).round(2) %>/10
+            <% if @avg_sound >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_sound >= 2.5 %>
+            <% elsif @avg_sound >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -68,10 +68,10 @@
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_vibe).round(2) %>/5
-            <% if @avg_vibe >= 3.5 %>
+            <%= (@avg_vibe).round(2) %>/10
+            <% if @avg_vibe >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_vibe >= 2.5 %>
+            <% elsif @avg_vibe >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -116,9 +116,9 @@
         <div class = "col-md-3">
             <p>Overall Rating: 
             <%= ratings[:overall_rating] %>
-            <% if ratings[:overall_rating] >= 3.5%>
+            <% if ratings[:overall_rating] >= 7%>
                 <i class="fas fa-smile"></i>
-            <% elsif ratings[:overall_rating] >= 2.5 %>
+            <% elsif ratings[:overall_rating] >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -128,9 +128,9 @@
         <div class = "col-md-3">
             <p>Sound Rating: 
             <%= ratings[:sound_rating] %>
-            <% if ratings[:sound_rating] >= 3.5%>
+            <% if ratings[:sound_rating] >= 7 %>
                 <i class="fas fa-smile"></i>
-            <% elsif ratings[:sound_rating] >= 2.5 %>
+            <% elsif ratings[:sound_rating] >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -140,9 +140,9 @@
         <div class = "col-md-3">
             <p>Payout Rating: 
             <%= ratings[:payout_rating] %>
-            <% if ratings[:payout_rating] >= 3.5%>
+            <% if ratings[:payout_rating] >= 7%>
                 <i class="fas fa-smile"></i>
-            <% elsif ratings[:payout_rating] >= 2.5 %>
+            <% elsif ratings[:payout_rating] >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -152,9 +152,9 @@
         <div class = "col-md-3">
             <p>Vibe Rating: 
             <%= ratings[:vibe_rating] %>
-            <% if ratings[:vibe_rating] >= 3.5%>
+            <% if ratings[:vibe_rating] >= 7%>
                 <i class="fas fa-smile"></i>
-            <% elsif ratings[:vibe_rating] >= 2.5 %>
+            <% elsif ratings[:vibe_rating] >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
