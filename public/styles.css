@@ -10,8 +10,8 @@ body {
 
 .jumbotron h1 {
     color: blue;
-    font-family: fantasy;
-    text-shadow: 3px 3px 3px black;
+    font-family: Anton;
+    text-shadow: 1px 1px 1px black;
 }
 
 .footer {
