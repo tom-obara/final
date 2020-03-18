@@ -5,13 +5,13 @@ body {
 .jumbotron {
     background-attachment: fixed;
     background-color: blanchedalmond;
-    text-shadow: 3px 3px 3px black;
     background-size: cover;
     }
 
 .jumbotron h1 {
     color: blue;
     font-family: fantasy;
+    text-shadow: 3px 3px 3px black;
 }
 
 .footer {
