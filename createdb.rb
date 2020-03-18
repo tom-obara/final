@@ -20,7 +20,7 @@ DB.create_table! :ratings do
   Integer :overall_rating
   Integer :food_quality_rating
   Integer :vibe_rating
-  Integer :payout_rating
+  Integer :food_variety_rating
   String :comments, text: true
 end
 

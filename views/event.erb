@@ -32,14 +32,14 @@
         <% end %>
 
         <p><b>Food Quality:</b></p>
-        <% if @avg_payout == nil %>
+        <% if @avg_p == nil %>
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_payout).round(2) %>/10
-            <% if @avg_payout >= 7 %>
+            <%= (@avg_food_variety).round(2) %>/10
+            <% if @avg_food_variety >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_payout >= 5 %>
+            <% elsif @avg_food_variety >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -138,11 +138,11 @@
             </p>
         </div>
         <div class = "col-md-3">
-            <p>Payout Rating: 
-            <%= ratings[:payout_rating] %>
-            <% if ratings[:payout_rating] >= 7%>
+            <p>Food Variety Rating: 
+            <%= ratings[:food_variety_rating] %>
+            <% if ratings[:food_variety_rating] >= 7%>
                 <i class="fas fa-smile"></i>
-            <% elsif ratings[:payout_rating] >= 5 %>
+            <% elsif ratings[:food_variety_rating] >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
