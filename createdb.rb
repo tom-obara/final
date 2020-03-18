@@ -8,9 +8,9 @@ DB = Sequel.connect(connection_string)                                          
 DB.create_table! :events do
   primary_key :id
   String :event_name
-  String :address
+  String :description
   String :website
-  String :email
+  String :address
   String :phone
 end
 DB.create_table! :ratings do
@@ -35,27 +35,27 @@ end
 events_table = DB.from(:events)
 
 events_table.insert(event_name: "Teriyaki Bowl", 
+                    description: "This family owned teriyaki restaurant is a Seattle staple, and the best that can be found in Queen Anne. Their meat is intentionally less fatty than other locations, and their homemade spicy sauce is a must-try!",
                     address: "718 Taylor Ave N, Seattle, WA 98109",
                     website: "http://teriyakibowl-qa.com/",
-                    email: "replace@replace.com",
                     phone: "(206) 285-8344")
 
 events_table.insert(event_name: "Gourmet Teriyaki", 
-                   address: "7671 SE 27th St, Mercer Island, WA 98040",
+                    description: "While the interior may not be much to look at, the food more than makes up for it. This restaurant hasn't changed in decades (and that's a good thing!). Start a rewards card and hang it on their wall so you don't have to carry it with you as you earn your way to a free meal!",
+                    address: "7671 SE 27th St, Mercer Island, WA 98040",
                     website: "https://www.yelp.com/biz/gourmet-teriyaki-mercer-island-2",
-                    email: "replace@replace.com",
                     phone: "(206) 232-0580")
 
 events_table.insert(event_name: "Toshio's Teriyaki", 
+                    description: "Serving the Rainier Valley since 2002, this couple owned restaruant boasts the juiciest teriyaki in the region.",
                     address: "1706 Rainier Ave S, Seattle, WA 98144",
                     website: "http://www.toshiosteriyaki.com/",
-                    email: "replace@replace.com",
                     phone: "(206) 323-6303")
 
 events_table.insert(event_name: "University Teriyaki", 
+                    description: "Arguably the most frequented teriyaki joint in the University district, University Teriyaki attracts a large portion of college students because of its tasty entrees and affordable prices.",
                     address: "4108 The Ave, Seattle, WA 98105",
                     website: "https://www.tripadvisor.com/Restaurant_Review-g60878-d2529210-Reviews-University_Teriyaki-Seattle_Washington.html",
-                    email: "replace@replace.com",
                     phone: "(206) 632-5688")
 
 users_table = DB.from(:users)
