@@ -1,7 +1,7 @@
 <div class = "row">
     <div class = "col">
-        <h1><%= @event[:event_name] %></h1>
-        <p><%= @event[:description] %></p>
+        <h1><%= @restaurant[:restaurant_name] %></h1>
+        <p><%= @restaurant[:description] %></p>
     </div>
 </div>
 
@@ -32,14 +32,14 @@
         <% end %>
 
         <p><b>Food Quality:</b></p>
-        <% if @avg_p == nil %>
+        <% if @avg_food_quality == nil %>
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_food_variety).round(2) %>/10
+            <%= (@avg_food_quality).round(2) %>/10
             <% if @avg_food_variety >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_food_variety >= 5 %>
+            <% elsif @avg_food_quality >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -48,14 +48,14 @@
         <% end %>
     
         <p><b>Variety:</b></p>
-        <% if @avg_food_quality == nil %>
+        <% if @avg_food_variety == nil %>
             <p>No Ratings Yet</p>
         <% else %>
             <p>
-            <%= (@avg_food_quality).round(2) %>/10
+            <%= (@avg_food_variety).round(2) %>/10
             <% if @avg_food_quality >= 7 %>
                     <i class="fas fa-smile"></i>
-            <% elsif @avg_food_quality >= 5 %>
+            <% elsif @avg_food_variety >= 5 %>
                 <i class="fas fa-meh"></i>
             <% else %>
                 <i class="fas fa-frown"></i>
@@ -80,22 +80,22 @@
         <% end %>
     </div>
     <div class = "col-md-6 col-md-offset-6">
-        <p>Address: <%= @event[:address] %></p>
-        <p>Phone: <%= @event[:phone] %></p>
-        <p>Website: <a href="<%=@event[:website]%>"><%=@event[:website]%></a></p>
+        <p>Address: <%= @restaurant[:address] %></p>
+        <p>Phone: <%= @restaurant[:phone] %></p>
+        <p>Website: <a href="<%=@restaurant[:website]%>"><%=@restaurant[:website]%></a></p>
         <iframe
             width="250"
             height="150"
             frameborder="0" style="border:0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-            &q=<%=@event[:address]%>&zoom=12" allowfullscreen>
+            &q=<%=@restaurant[:address]%>&zoom=12" allowfullscreen>
         </iframe>
     </div>
 </div>
 
 <div class = "row mt-3">
     <div class = "col">
-        <a href ="/events/<%= @event[:id] %>/ratings/new" class="btn btn-outline-primary">Rate & Review</a>
+        <a href ="/restaurants/<%= @restaurant[:id] %>/ratings/new" class="btn btn-outline-primary">Rate & Review</a>
     </div>
 </div>
 

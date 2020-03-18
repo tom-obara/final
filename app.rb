@@ -15,7 +15,7 @@ after { puts; }                                                                 
 #######################################################################################
 
 
-events_table = DB.from(:events)
+restaurants_table = DB.from(:restaurants)
 ratings_table = DB.from(:ratings)
 users_table = DB.from(:users)
 
@@ -29,27 +29,27 @@ get "/" do
 end
 
 
-get "/events/all" do
-    puts events_table.all
-    @events = events_table.all.to_a
+get "/restaurants/all" do
+    puts restaurants_table.all
+    @restaurants = restaurants_table.all.to_a
     @ratings_table = DB.from(:reviews)
-    view "events"
+    view "restaurants"
 end
 
-get "/events/:id" do
-    @event = events_table.where(id: params[:id]).to_a[0]
-    @ratings = ratings_table.where(event_id: @event[:id])
+get "/restaurants/:id" do
+    @restaurant = restaurants_table.where(id: params[:id]).to_a[0]
+    @ratings = ratings_table.where(restaurant_id: @restaurant[:id])
     @users_table = users_table
-    @avg_overall = ratings_table.where(event_id: @event[:id]).avg(:overall_rating)
-    @avg_food_quality = ratings_table.where(event_id: @event[:id]).avg(:food_quality_rating)
-    @avg_ambiance = ratings_table.where(event_id: @event[:id]).avg(:ambiance_rating)
-    @avg_food_variety = ratings_table.where(event_id: @event[:id]).avg(:food_variety_rating)
-    view "event"
+    @avg_overall = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:overall_rating)
+    @avg_food_quality = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_quality_rating)
+    @avg_ambiance = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:ambiance_rating)
+    @avg_food_variety = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_variety_rating)
+    view "restaurant"
 end
 
-get "/event/:id/reviews/confirm" do
+get "/restaurant/:id/reviews/confirm" do
     if @current_user == nil
-        ratings_table.insert(event_id: params["id"],
+        ratings_table.insert(restaurant_id: params["id"],
                             user_id: 1,
                             overall_rating: params["overall_rating"],
                             food_quality_rating: params["food_quality_rating"],
@@ -57,7 +57,7 @@ get "/event/:id/reviews/confirm" do
                             food_variety_rating: params["food_variety_rating"],
                             comments: params["comments"])
     else   
-        ratings_table.insert(event_id: params["id"],
+        ratings_table.insert(restaurant_id: params["id"],
                             user_id: session["user_id"],
                             overall_rating: params["overall_rating"],
                             food_quality_rating: params["food_quality_rating"],
@@ -69,15 +69,15 @@ get "/event/:id/reviews/confirm" do
     view "reviews_confirm"
 end
 
-get "/events/:id/ratings/new" do
-    @event = events_table.where(id: params[:id]).to_a[0]
+get "/restaurants/:id/ratings/new" do
+    @restaurant = restaurants_table.where(id: params[:id]).to_a[0]
     view "new_ratings"
 end
 
-get "/events/:id/ratings/create" do
+get "/restaurants/:id/ratings/create" do
     puts params
-    @event = events_table.where(id: params["id"]).to_a[0]
-    ratings_table.insert(event_id: params["id"],
+    @restaurant = restaurants_table.where(id: params["id"]).to_a[0]
+    ratings_table.insert(restaurant_id: params["id"],
                        user_id: session["user_id"],
                        comments: params["comments"])
     view "create_ratings"

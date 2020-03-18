@@ -8,7 +8,7 @@
 
     <h1>Seattle Teriyaki Joints</h1>
 
-    <% for event in @events %>
-        <p><a href="/events/<%= event[:id] %>"><%= event[:event_name] %></a></p>
+    <% for restaurant in @restaurants %>
+        <p><a href="/restaurants/<%= restaurant[:id] %>"><%= restaurant[:restaurant_name] %></a></p>
     <% end %>
 </body>
