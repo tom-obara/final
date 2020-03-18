@@ -40,10 +40,10 @@ get "/restaurants/:id" do
     @restaurant = restaurants_table.where(id: params[:id]).to_a[0]
     @ratings = ratings_table.where(restaurant_id: @restaurant[:id])
     @users_table = users_table
-    @avg_overall = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:overall_rating)
-    @avg_food_quality = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_quality_rating)
-    @avg_ambiance = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:ambiance_rating)
-    @avg_food_variety = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_variety_rating)
+    @avg_overall = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:overall_rating).to_f
+    @avg_food_quality = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_quality_rating).to_f
+    @avg_ambiance = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:ambiance_rating).to_f
+    @avg_food_variety = ratings_table.where(restaurant_id: @restaurant[:id]).avg(:food_variety_rating).to_f
     view "restaurant"
 end
 
