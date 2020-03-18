@@ -55,7 +55,7 @@ get "/restaurant/:id/reviews/confirm" do
                             food_quality_rating: params["food_quality_rating"],
                             ambiance_rating: params["ambiance_rating"],
                             food_variety_rating: params["food_variety_rating"],
-                            comments: params["comments"])
+                            reviews: params["reviews"])
     else   
         ratings_table.insert(restaurant_id: params["id"],
                             user_id: session["user_id"],
@@ -63,7 +63,7 @@ get "/restaurant/:id/reviews/confirm" do
                             food_quality_rating: params["food_quality_rating"],
                             ambiance_rating: params["ambiance_rating"],
                             food_variety_rating: params["food_variety_rating"],
-                            comments: params["comments"])
+                            reviews: params["reviews"])
     end
 
     view "reviews_confirm"
@@ -79,7 +79,7 @@ get "/restaurants/:id/ratings/create" do
     @restaurant = restaurants_table.where(id: params["id"]).to_a[0]
     ratings_table.insert(restaurant_id: params["id"],
                        user_id: session["user_id"],
-                       comments: params["comments"])
+                       reviews: params["reviews"])
     view "create_ratings"
 end
 
@@ -92,14 +92,14 @@ post "/users/create" do
     hashed_password = BCrypt::Password.create(params["password"])
     users_table.insert(name: params["name"], email: params["email"], password: hashed_password)
 
-    # account_sid = ENV["TWILIO_ACCOUNT_SID"]
-    # auth_token = ENV["TWILIO_AUTH_TOKEN"]
-    # client = Twilio::REST::Client.new(account_sid, auth_token)
-    # client.messages.create(
-    # from: "+12029329915", 
-    # to: "+12067796004",
-    # body: "A new user has created an account on Teriyaki Hub!"
-    # )
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    auth_token = ENV["TWILIO_AUTH_TOKEN"]
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    client.messages.create(
+    from: "+12029329915", 
+    to: "+12067796004",
+    body: "A new user has created an account on Teriyaki Hub!"
+    )
     
     view "create_user"
 end
