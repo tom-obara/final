@@ -42,7 +42,7 @@ get "/events/:id" do
     @users_table = users_table
     @avg_overall = ratings_table.where(event_id: @event[:id]).avg(:overall_rating)
     @avg_food_quality = ratings_table.where(event_id: @event[:id]).avg(:food_quality_rating)
-    @avg_vibe = ratings_table.where(event_id: @event[:id]).avg(:vibe_rating)
+    @avg_ambiance = ratings_table.where(event_id: @event[:id]).avg(:ambiance_rating)
     @avg_food_variety = ratings_table.where(event_id: @event[:id]).avg(:food_variety_rating)
     view "event"
 end
@@ -53,7 +53,7 @@ get "/event/:id/reviews/confirm" do
                             user_id: 1,
                             overall_rating: params["overall_rating"],
                             food_quality_rating: params["food_quality_rating"],
-                            vibe_rating: params["vibe_rating"],
+                            ambiance_rating: params["ambiance_rating"],
                             food_variety_rating: params["food_variety_rating"],
                             comments: params["comments"])
     else   
@@ -61,7 +61,7 @@ get "/event/:id/reviews/confirm" do
                             user_id: session["user_id"],
                             overall_rating: params["overall_rating"],
                             food_quality_rating: params["food_quality_rating"],
-                            vibe_rating: params["vibe_rating"],
+                            ambiance_rating: params["ambiance_rating"],
                             food_variety_rating: params["food_variety_rating"],
                             comments: params["comments"])
     end

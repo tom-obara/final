@@ -19,7 +19,7 @@ DB.create_table! :ratings do
   foreign_key :user_id
   Integer :overall_rating
   Integer :food_quality_rating
-  Integer :vibe_rating
+  Integer :ambiance_rating
   Integer :food_variety_rating
   String :comments, text: true
 end
